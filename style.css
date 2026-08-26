@@ -46,7 +46,7 @@ body {
 
 .bg {
   position: fixed;
-  inset: -24px;
+  inset: -12%;
   z-index: -2;
   overflow: hidden;
   filter: blur(10px) brightness(0.55);
