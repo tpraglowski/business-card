@@ -31,20 +31,27 @@
       </svg>
     </a>
 
-    <div class="social-btn social-btn--menu">
-      <button type="button" id="siteMenuToggle" aria-label="Moje strony" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <circle cx="6" cy="6" r="2.2"/><circle cx="12" cy="6" r="2.2"/><circle cx="18" cy="6" r="2.2"/>
-          <circle cx="6" cy="12" r="2.2"/><circle cx="12" cy="12" r="2.2"/><circle cx="18" cy="12" r="2.2"/>
-          <circle cx="6" cy="18" r="2.2"/><circle cx="12" cy="18" r="2.2"/><circle cx="18" cy="18" r="2.2"/>
-        </svg>
+    <button type="button" class="social-btn" id="siteMenuToggle" aria-label="Moje strony" aria-expanded="false" aria-haspopup="dialog">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <circle cx="6" cy="6" r="2.2"/><circle cx="12" cy="6" r="2.2"/><circle cx="18" cy="6" r="2.2"/>
+        <circle cx="6" cy="12" r="2.2"/><circle cx="12" cy="12" r="2.2"/><circle cx="18" cy="12" r="2.2"/>
+        <circle cx="6" cy="18" r="2.2"/><circle cx="12" cy="18" r="2.2"/><circle cx="18" cy="18" r="2.2"/>
+      </svg>
+    </button>
+  </nav>
+
+  <div class="menu-backdrop" id="menuBackdrop">
+    <div class="site-menu" id="siteMenu" role="dialog" aria-label="Moje strony">
+      <button type="button" class="site-menu__back" id="siteMenuBack">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        Powrót do wizytówki
       </button>
-      <ul class="site-menu" id="siteMenu">
+      <ul>
         <li><a href="https://tpraglowski.github.io/myschool/" target="_blank" rel="noopener">MySchool</a></li>
         <li><a href="https://tpraglowski.github.io/business-card/">Wizytówka</a></li>
       </ul>
     </div>
-  </nav>
+  </div>
 
   <footer>
     <p>&copy; <span id="year"></span> Tomasz Pragłowski</p>
