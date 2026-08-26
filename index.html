@@ -8,9 +8,25 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
+<script>
+  (function () {
+    try {
+      var pref = localStorage.getItem("theme-preference") || "auto";
+      var dark = pref === "dark" || (pref === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+      document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+    } catch (e) {}
+  })();
+</script>
 </head>
 <body>
   <div class="bg" aria-hidden="true"></div>
+
+  <button type="button" class="social-btn settings-toggle" id="settingsToggle" aria-label="Ustawienia" aria-haspopup="dialog" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+      <circle cx="12" cy="12" r="3"/>
+      <path d="M19.4 13a7.5 7.5 0 0 0 0-2l2-1.6-2-3.4-2.4.6a7.6 7.6 0 0 0-1.7-1L14.9 3h-4l-.4 2.6a7.6 7.6 0 0 0-1.7 1l-2.4-.6-2 3.4L6.4 11a7.5 7.5 0 0 0 0 2l-2 1.6 2 3.4 2.4-.6a7.6 7.6 0 0 0 1.7 1l.4 2.6h4l.4-2.6a7.6 7.6 0 0 0 1.7-1l2.4.6 2-3.4-2-1.6Z"/>
+    </svg>
+  </button>
 
   <h1 class="brand">Tpraglowski</h1>
 
@@ -50,6 +66,21 @@
         <li><a href="https://tpraglowski.github.io/myschool/" target="_blank" rel="noopener">MySchool</a></li>
         <li><a href="https://tpraglowski.github.io/business-card/">Wizytówka</a></li>
       </ul>
+    </div>
+  </div>
+
+  <div class="menu-backdrop" id="settingsBackdrop">
+    <div class="site-menu" id="settingsPanel" role="dialog" aria-label="Ustawienia">
+      <button type="button" class="site-menu__back" id="settingsBack">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        Powrót do wizytówki
+      </button>
+      <p class="settings-label">Tryb wyświetlania</p>
+      <div class="theme-options" role="radiogroup" aria-label="Tryb wyświetlania">
+        <button type="button" class="theme-option" data-theme-value="light" role="radio">Jasny</button>
+        <button type="button" class="theme-option" data-theme-value="dark" role="radio">Ciemny</button>
+        <button type="button" class="theme-option" data-theme-value="auto" role="radio">Automatyczny</button>
+      </div>
     </div>
   </div>
 

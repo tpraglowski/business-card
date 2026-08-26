@@ -4,6 +4,11 @@
   --text: #f1f5f9;
   --muted: #94a3b8;
   --accent: #38bdf8;
+  --bg-image: url("assets/nether.png");
+}
+
+:root[data-theme="dark"] {
+  --bg-image: url("assets/ocean.png");
 }
 
 * {
@@ -30,9 +35,13 @@ body {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: url("assets/nether.png") center / cover no-repeat;
+  background-image: var(--bg-image);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   filter: blur(10px) brightness(0.55);
   transform: scale(1.1);
+  transition: background-image 0.2s ease;
 }
 
 .brand {
@@ -69,7 +78,10 @@ body {
   height: 6rem;
   margin: 0 auto 1rem;
   border-radius: 50%;
-  background: url("assets/nether.png") center / cover no-repeat;
+  background-image: var(--bg-image);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   border: 2px solid rgba(255, 255, 255, 0.5);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
@@ -102,6 +114,13 @@ h2 {
 
 .social-btn:hover {
   transform: translateY(-2px);
+}
+
+.settings-toggle {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 10;
 }
 
 .social-btn svg {
@@ -177,6 +196,45 @@ h2 {
 
 .site-menu a:hover {
   background: rgba(255, 255, 255, 0.12);
+}
+
+.settings-label {
+  margin: 0 0 0.4rem;
+  padding: 0 0.5rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.theme-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.theme-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.6rem;
+  border: 1px solid transparent;
+  background: none;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.theme-option:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.theme-option[aria-checked="true"] {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.35);
+  font-weight: 600;
 }
 
 footer {
